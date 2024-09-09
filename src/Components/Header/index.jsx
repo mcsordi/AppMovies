@@ -16,13 +16,13 @@ function Header() {
       borderBottom="2px solid #E53E3E"
       zIndex="999999999"
     >
-      <Text fontSize="2.5rem" fontWeight="500" color="red.0" as="span">
+      <Text fontSize="2.5rem" fontWeight="500" color="red.2" as="span">
         <Link as={ReactRouterLink} to="/" _hover={{}}>
           MathewsFlix
         </Link>
       </Text>
 
-      <Flex fontWeight="600" fontSize="1.2rem" gap=".9rem" as="nav">
+      <Flex fontWeight="300" fontSize="1.2rem" gap=".9rem" as="nav">
         <Link _hover={{}} as={ReactRouterLink} to="/">
           Inicio
         </Link>

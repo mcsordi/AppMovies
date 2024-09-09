@@ -6,7 +6,7 @@ import "./index.css";
 const colors = {
   white: "#fff",
   black: { 0: "#000", 1: "#222" },
-  red: { 0: "#f00", 1: "#C53030", 2: "#E53E3E" },
+  red: { 0: "#f00", 1: "#C53030", 2: "#ff2c2c" },
 };
 
 const font = {

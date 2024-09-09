@@ -6,9 +6,10 @@ function Container({ children }) {
       overflow="hidden"
       as="section"
       w="100%"
-      minH={"100vh"}
-      h={"100%"}
+      minH="100vh"
+      h="100%"
       backgroundColor="black.1"
+      alignItems="center"
     >
       {children}
     </Box>
