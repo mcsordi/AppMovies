@@ -2,7 +2,7 @@ import Container from "../../Components/Container ";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
-import { filterCategories } from "../../Components/Card";
+import { filterCategories } from "../../Components/Category";
 
 function Home() {
   return (

@@ -10,6 +10,7 @@ function Container({ children }) {
       h="100%"
       backgroundColor="black.1"
       alignItems="center"
+      justifyContent="center"
     >
       {children}
     </Box>
