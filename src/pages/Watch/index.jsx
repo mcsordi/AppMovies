@@ -1,4 +1,4 @@
-import { Center } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 import Container from "../../Components/Container ";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
@@ -19,28 +19,37 @@ function Watch() {
     return (
       <>
         <Header />
-        <Container>
-          <Center
-            w="100%"
-            h="100vh"
-            alignItems={"center"}
-            justifyContent={"center"}
-            flexDirection="column"
-            gap="1rem"
-          >
+        <Center
+          w={["100%"]}
+          h="100vh"
+          align={"center"}
+          justify={"center"}
+          flexDirection="column"
+          gap="1rem"
+        >
+          <Container>
             <Category category={isValidId[0].title} />
-            <iframe
-              width="854"
-              height="480"
-              src={`https://www.youtube.com/embed/${params}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </Center>
-        </Container>
+            <Flex
+              p="1rem"
+              w={["100%"]}
+              align="center"
+              justify="center"
+              mt="10%"
+            >
+              <Box
+                as="iframe"
+                width={["100%", "860px"]}
+                height={["50vh", "480px"]}
+                src={`https://www.youtube.com/embed/${params}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></Box>
+            </Flex>
+          </Container>
+        </Center>
         <Footer />
       </>
     );

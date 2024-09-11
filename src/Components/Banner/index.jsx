@@ -4,13 +4,19 @@ function Banner({ image }) {
   return (
     <Box
       mt={"8vh"}
-      w="100%"
-      h="347px"
+      w={["50vh", "100%"]}
+      h={["200px", "347px"]}
       backgroundImage={`url(./Image/banner-${image}.png)`}
       backgroundPosition="center"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
-    ></Box>
+    >
+      <Box
+        w="100%"
+        h="100%"
+        shadow="0px -30px 100px 20px #ffffff50 inset "
+      ></Box>
+    </Box>
   );
 }
 export default Banner;

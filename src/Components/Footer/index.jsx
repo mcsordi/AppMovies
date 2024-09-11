@@ -8,12 +8,12 @@ function Footer() {
       as="footer"
       backgroundColor="black.0"
       color="white"
-      height={"5rem"}
+      height={["3rem", "5rem"]}
       borderTop={"2px solid #E53E3E"}
     >
       <Heading
         fontFamily={"Poppins"}
-        fontSize={"1.5rem"}
+        fontSize={["0.8rem", "1rem", "1.5rem"]}
         fontWeight={300}
         as="h2"
       >
