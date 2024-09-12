@@ -10,7 +10,7 @@ function Header() {
       align="center"
       justify="space-around"
       backgroundColor="#000"
-      h={["8vh"]}
+      height={"4.5rem"}
       w="100%"
       color="#fff"
       borderBottom="2px solid #E53E3E"
@@ -19,7 +19,7 @@ function Header() {
       <Text
         fontSize={["1.5rem", "2.5rem"]}
         fontWeight="500"
-        color="red.2"
+        color="red.3"
         as="span"
       >
         <Link as={ReactRouterLink} to="/" _hover={{}}>

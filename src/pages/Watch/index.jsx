@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import videos from "../../json/films.json";
 import ErrorPage from "../ErrorPage";
 import Category from "../../Components/Category";
+import ScrollTop from "../../Components/ScrollTop";
 
 function Watch() {
   const params = useParams().id;
@@ -28,6 +29,7 @@ function Watch() {
           gap="1rem"
         >
           <Container>
+            <ScrollTop />
             <Flex
               p="1rem"
               w={["100%"]}

@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 function Banner({ image }) {
   return (
     <Box
-      mt={"8vh"}
+      mt={"4.5rem"}
       w={["50vh", "100%"]}
       h={["200px", "347px"]}
       backgroundImage={`url(./Image/banner-${image}.png)`}

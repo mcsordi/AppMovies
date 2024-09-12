@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import films from "../../json/films.json";
 import Category from "../../Components/Category";
 import Spinner from "../../Components/Spinner";
+import ScrollTop from "../../Components/ScrollTop";
+
 function Search() {
   const [spinn, SetSpinn] = useState(true);
   const [value, setValue] = useState("");
@@ -27,6 +29,7 @@ function Search() {
   if (spinn) {
     return (
       <>
+        <ScrollTop />
         <Header />
         <Spinner />
         <Footer />
@@ -37,6 +40,7 @@ function Search() {
       <>
         <Header />
         <Container>
+          <ScrollTop />;
           <Center>
             <SearchBar value={value} setValue={setValue} />
           </Center>
@@ -48,7 +52,7 @@ function Search() {
             }
           />
           <Center w="100%">
-            <Flex w="80%" align="center" justify="center" wrap="wrap">
+            <Flex w="85%" align="center" justify="center" wrap="wrap">
               {matchTitle.map((video) => {
                 return <Card id={video.id} />;
               })}

@@ -1,25 +1,34 @@
 import { Box, Center, Link } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
-import { faS, faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { StarIcon } from "@chakra-ui/icons";
+
 import { useFavCard } from "../../context";
 import style from "./Card.module.css";
 
 function Card({ id }) {
   const { fav, addFavorite } = useFavCard();
-  const favIcon = fav.includes(id) ? solidStar : faStar;
+  const favIcon = fav.includes(id) ? (
+    <StarIcon w={6} h={6} color="yellow" />
+  ) : (
+    <StarIcon w={6} h={6} color="#fff" />
+  );
 
   return (
     <Center
       flexDirection="column"
-      alignItems={"end"}
+      alignItems={"start "}
       justifyContent={"end"}
       position="relative"
       mx={".3rem"}
       my={"1rem"}
     >
-      <Link w="270px" h="150px" as={ReactRouterLink} to={`/watch/${id}`}>
+      <Link
+        w={["143px", "286px"]}
+        h={["80px", "161px"]}
+        as={ReactRouterLink}
+        to={`/watch/${id}`}
+      >
         <Box
           _hover={{
             transform: "scale(1.15)",
@@ -34,23 +43,20 @@ function Card({ id }) {
           backgroundImage={`url(https://img.youtube.com/vi/${id}/mqdefault.jpg)`}
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+          backgroundSize="contain"
           position={"relative"}
         ></Box>
       </Link>
 
-      <figure
+      <Box
+        as="figure"
         className={style.starIcon}
+        w={["30px", "50px"]}
+        h={["30px", "50px"]}
         onClick={(evt) => addFavorite({ id }.id)}
       >
-        <FontAwesomeIcon
-          color="yellow"
-          icon={favIcon}
-          size="2x"
-          cursor="pointer"
-          onClick={(evt) => addFavorite({ id }.id)}
-        />
-      </figure>
+        {favIcon}
+      </Box>
     </Center>
   );
 }
