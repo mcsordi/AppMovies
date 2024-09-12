@@ -3,15 +3,8 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { faS, faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
-
-// import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
-
-import style from "./Card.module.css";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/scrollbar";
 import { useFavCard } from "../../context";
+import style from "./Card.module.css";
 
 function Card({ id }) {
   const { fav, addFavorite } = useFavCard();
@@ -26,7 +19,7 @@ function Card({ id }) {
       mx={".3rem"}
       my={"1rem"}
     >
-      <Link as={ReactRouterLink} to={`/watch/${id}`}>
+      <Link w="270px" h="150px" as={ReactRouterLink} to={`/watch/${id}`}>
         <Box
           _hover={{
             transform: "scale(1.15)",
@@ -35,8 +28,8 @@ function Card({ id }) {
           }}
           transition=".3s ease-in-out all"
           borderRadius="10px"
-          w="270px"
-          h="150px"
+          w="100%"
+          h="100%"
           alt="Trailer Img"
           backgroundImage={`url(https://img.youtube.com/vi/${id}/mqdefault.jpg)`}
           backgroundPosition="center"

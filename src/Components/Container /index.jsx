@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 function Container({ children }) {
   return (
     <Box
+      display="flex"
       position="relative"
       overflow="hidden"
       as="section"
@@ -10,7 +11,8 @@ function Container({ children }) {
       h="100%"
       backgroundColor="black.1"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="start"
+      flexDirection="column"
     >
       {children}
     </Box>

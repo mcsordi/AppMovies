@@ -1,70 +1,40 @@
 import { Heading, Box, Center } from "@chakra-ui/react";
 import Card from "../../Components/Card";
 import videos from "../../json/films.json";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Scrollbar, A11y } from "swiper/modules";
-export const categories = ["Ação", "Comédia", "Terror", "Animação"];
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-export const filterCategories = () =>
-  categories.map((el, idx) => (
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+const categories = ["Ação", "Comédia", "Terror", "Animação"];
+
+export const filterCategories = () => {
+  return categories.map((el, idx) => (
     <Category key={idx} category={el}>
-      <Swiper
-        modules={[Navigation, Scrollbar, A11y]}
-        slidesPerView={4}
-        loop={true}
-        navigation
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          360: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          375: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 100,
-          },
-          1310: {
-            slidesPerView: 3,
-            spaceBetween: false,
-          },
-          1440: {
-            slidesPerView: 3,
-            spaceBetween: false,
-          },
-          1800: {
-            slidesPerView: 4,
-            spaceBetween: 0,
-          },
-        }}
-      >
-        {videos.map((img) =>
-          el === img.genre ? (
-            <SwiperSlide>
-              <Card key={img.id} id={img.id} />
-            </SwiperSlide>
-          ) : (
-            <></>
-          )
-        )}
-      </Swiper>
+      {videos.map((video) =>
+        video.genre == el ? (
+          <SwiperSlide>
+            <Card key={video.id} id={video.id}></Card>
+          </SwiperSlide>
+        ) : (
+          <></>
+        )
+      )}
     </Category>
   ));
+};
 
 function Category({ children, category }) {
   return (
     <Center
-      flexDirection="column"
       display="flex"
-      align="center"
-      justify="center"
-      w="100%"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="start"
+      w="80%"
     >
       <Heading
         fontFamily={"Poppins"}
@@ -81,9 +51,18 @@ function Category({ children, category }) {
         justifyContent="center"
         display={"flex"}
         flexDirection="row"
-        w="70%"
+        w="85%"
       >
-        {children}
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={50}
+          slidesPerView={4}
+          navigation
+          loop={true}
+          speed={400}
+        >
+          {children}
+        </Swiper>
       </Box>
     </Center>
   );

@@ -28,14 +28,15 @@ function Watch() {
           gap="1rem"
         >
           <Container>
-            <Category category={isValidId[0].title} />
             <Flex
               p="1rem"
               w={["100%"]}
               align="center"
               justify="center"
               mt="10%"
+              direction="column"
             >
+              <Category category={isValidId[0].title} />
               <Box
                 as="iframe"
                 width={["100%", "860px"]}
@@ -46,6 +47,7 @@ function Watch() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
+                mt="1.5rem"
               ></Box>
             </Flex>
           </Container>

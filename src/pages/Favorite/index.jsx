@@ -5,7 +5,6 @@ import Footer from "../../Components/Footer";
 import Category from "../../Components/Category";
 import { useFavCard } from "../../context";
 import Card from "../../Components/Card";
-import Spinn from "../../Components/Spinner";
 
 function Favorite() {
   const { fav } = useFavCard();
@@ -15,9 +14,9 @@ function Favorite() {
     <>
       <Header />
       <Container>
-        <Center w="100%" mt="10vh">
-          <Flex w="80%" align={"center"} justifyContent={"center"} wrap="wrap">
-            <Category category={favtext} />
+        <Center flexDir="column" display="flex" w="100%" mt="10vh">
+          <Category category={favtext} />
+          <Flex w="80%" align={"center"} justify={"center"} wrap="wrap">
             {fav.map((el) => (
               <Card id={el} />
             ))}
