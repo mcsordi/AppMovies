@@ -21,11 +21,11 @@ function Carrousel() {
         breakpoints={{
           320: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 0,
           },
           375: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 10,
           },
           390: {
             slidesPerView: 2,

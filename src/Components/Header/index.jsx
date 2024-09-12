@@ -17,7 +17,7 @@ function Header() {
       zIndex="999999999"
     >
       <Text
-        fontSize={["1.5rem", "2.5rem"]}
+        fontSize={["1.3rem", "2.5rem"]}
         fontWeight="500"
         color="red.3"
         as="span"
@@ -30,7 +30,7 @@ function Header() {
       <Flex
         fontWeight="300"
         fontSize={[".9rem", "1.2rem"]}
-        gap=".9rem"
+        gap={[".3rem", ".5rem"]}
         as="nav"
       >
         <Link _hover={{}} as={ReactRouterLink} to="/">

@@ -13,7 +13,7 @@ function Category({ children, category }) {
       flexDirection="column"
       alignItems="center"
       justifyContent="start"
-      w="80%"
+      w={["90%", "80%"]}
       mt="10px"
     >
       <Heading

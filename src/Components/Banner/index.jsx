@@ -4,7 +4,7 @@ function Banner({ image }) {
   return (
     <Box
       mt={"4.5rem"}
-      w={["50vh", "100%"]}
+      w={["100vw", "100%"]}
       h={["200px", "347px"]}
       backgroundImage={`url(./Image/banner-${image}.png)`}
       backgroundPosition="center"
