@@ -1,6 +1,3 @@
-import Header from "../../Components/Header";
-import Container from "../../Components/Container ";
-import Footer from "../../Components/Footer";
 import { Center, Flex } from "@chakra-ui/react";
 import SearchBar from "../../Components/SearchBar";
 import Card from "../../Components/Card";
@@ -8,7 +5,6 @@ import { useEffect, useState } from "react";
 import films from "../../json/films.json";
 import Category from "../../Components/Category";
 import Spinner from "../../Components/Spinner";
-import ScrollTop from "../../Components/ScrollTop";
 
 function Search() {
   const [spinn, SetSpinn] = useState(true);
@@ -29,38 +25,29 @@ function Search() {
   if (spinn) {
     return (
       <>
-        <ScrollTop />
-        <Header />
         <Spinner />
-        <Footer />
       </>
     );
   } else {
     return (
       <>
-        <Header />
-        <Container>
-          <ScrollTop />;
-          <Center>
-            <SearchBar value={value} setValue={setValue} />
-          </Center>
-          <Category
-            category={
-              value == ""
-                ? ` ${matchTitle.length} Filmes Encontrados`
-                : labelSearch
-            }
-          />
-          <Center w="100%">
-            <Flex w="85%" align="center" justify="center" wrap="wrap">
-              {matchTitle.map((video) => {
-                return <Card id={video.id} />;
-              })}
-            </Flex>
-          </Center>
-        </Container>
-
-        <Footer />
+        <Center>
+          <SearchBar value={value} setValue={setValue} />
+        </Center>
+        <Category
+          category={
+            value == ""
+              ? ` ${matchTitle.length} Filmes Encontrados`
+              : labelSearch
+          }
+        />
+        <Center w="100%">
+          <Flex w="85%" align="center" justify="center" wrap="wrap">
+            {matchTitle.map((video) => {
+              return <Card key={video.id} id={video.id} />;
+            })}
+          </Flex>
+        </Center>
       </>
     );
   }

@@ -1,8 +1,6 @@
 import { Box, Center, Link } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StarIcon } from "@chakra-ui/icons";
-
 import { useFavCard } from "../../context";
 import style from "./Card.module.css";
 
