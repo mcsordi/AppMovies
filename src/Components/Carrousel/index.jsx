@@ -48,7 +48,7 @@ function Carrousel() {
       >
         {videos.map((video) =>
           video.genre == el ? (
-            <SwiperSlide>
+            <SwiperSlide key={video.id}>
               <Card key={video.id} id={video.id}></Card>
             </SwiperSlide>
           ) : (

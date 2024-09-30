@@ -4,6 +4,7 @@ import film from "./json/films.json";
 const favorite = createContext();
 favorite.displayName = "myContext";
 
+// eslint-disable-next-line react/prop-types
 export default function FavoriteContext({ children }) {
   const [fav, setFav] = useState([]);
 
