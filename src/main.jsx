@@ -25,10 +25,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <BasePage />,
-
+    errorElement: <ErrorPage param={`Página não Encontrada`} />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "*", element: <ErrorPage param={`Página não Encontrada`} /> },
       { path: "favorite", element: <Favorite /> },
       { path: "search", element: <Search /> },
       { path: "watch/:id", element: <Watch /> },
@@ -41,7 +40,6 @@ const theme = extendTheme({ colors, font });
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ChakraProvider theme={theme}>
-      {/* <App />  */}
       <FavoriteContext>
         <RouterProvider router={router} />
       </FavoriteContext>
