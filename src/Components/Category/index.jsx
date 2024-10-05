@@ -5,7 +5,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export const categories = ["Ação", "Comédia", "Terror", "Animação"];
+// export const Categories = () => {
+//   const apiAdress = `https://appmovies-api.onrender.com/filmes`;
+//   useEffect(() => {
+//     return fetch(apiAdress)
+//       .then((response) => response.json())
+//       .then((json) => console.log(json));
+//   });
+// };
 
+// eslint-disable-next-line react/prop-types
 function Category({ children, category }) {
   return (
     <Center

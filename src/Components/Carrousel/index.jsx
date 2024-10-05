@@ -1,16 +1,16 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../../Components/Card";
-import Category, { categories } from "../Category";
-import videos from "../../json/films.json";
+import Category from "../Category";
+import ListCategories from "../../Components/Category/listCategories";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-function Carrousel() {
-  return categories.map((el, idx) => (
-    <Category key={idx} category={el}>
+function Carrousel({ listVideos }) {
+  return ListCategories().map((el, idx) => (
+    <Category key={idx} category={el.category}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween="40"
@@ -46,10 +46,10 @@ function Carrousel() {
           },
         }}
       >
-        {videos.map((video) =>
-          video.genre == el ? (
+        {listVideos.map((video) =>
+          video.category == el.category ? (
             <SwiperSlide key={video.id}>
-              <Card key={video.id} id={video.id}></Card>
+              <Card key={video.id} id={video.code}></Card>
             </SwiperSlide>
           ) : (
             <></>

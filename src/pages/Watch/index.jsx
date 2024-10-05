@@ -1,19 +1,19 @@
 import { Box, Center, Flex } from "@chakra-ui/react";
-
 import { useParams } from "react-router-dom";
-import videos from "../../json/films.json";
-import ErrorPage from "../ErrorPage";
+import { useFetchVideos } from "../../Components/Videos";
 import Category from "../../Components/Category";
 import ScrollTop from "../../Components/ScrollTop";
+import Spinn from "../../Components/Spinner";
 
 function Watch() {
   const params = useParams().id;
-  const isValidId = videos.filter((el) =>
-    el.id === params ? el.title : false
+  const isValidId = useFetchVideos().filter((el) =>
+    el.code === params ? el.title : false
   );
+  console.log("Watch ~ isValidId:", isValidId);
 
   if (isValidId.length == 0) {
-    return <ErrorPage param={`Video com o ID "${params}" não encontrado`} />;
+    return <Spinn />;
   } else {
     return (
       <>

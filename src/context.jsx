@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import film from "./json/films.json";
+import { useFetchVideos } from "./Components/Videos";
 
 const favorite = createContext();
 favorite.displayName = "myContext";
@@ -15,20 +15,21 @@ export default function FavoriteContext({ children }) {
 
 function useFavCard() {
   const { fav, setFav } = useContext(favorite);
-
+  const listFavorite = useFetchVideos();
   function addFavorite(id) {
     let newList = [...fav];
-    const isFavorite = film.filter((el) => el.id === id);
-    const isRepeated = newList.includes(id);
 
+    const isFavorite = listFavorite.filter((el) => el.code === id);
+    const isRepeated = newList.includes(id);
     if (isFavorite && isRepeated) {
       newList = newList.filter((el) => el !== id);
       return setFav(newList);
     } else {
-      newList.push(isFavorite[0].id);
+      newList.push(isFavorite[0].code);
       return setFav(newList);
     }
   }
+
   return { fav, addFavorite };
 }
 

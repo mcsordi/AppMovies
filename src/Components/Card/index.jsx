@@ -4,6 +4,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { useFavCard } from "../../context";
 import style from "./Card.module.css";
 
+// eslint-disable-next-line react/prop-types
 function Card({ id }) {
   const { fav, addFavorite } = useFavCard();
   const favIcon = fav.includes(id) ? (
@@ -51,7 +52,7 @@ function Card({ id }) {
         className={style.starIcon}
         w={["30px", "50px"]}
         h={["30px", "50px"]}
-        onClick={(evt) => addFavorite({ id }.id)}
+        onClick={() => addFavorite(id)}
       >
         {favIcon}
       </Box>

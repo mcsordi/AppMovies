@@ -1,7 +1,7 @@
 import { Flex, Center } from "@chakra-ui/react";
 import Category from "../../Components/Category";
-import { useFavCard } from "../../context";
 import Card from "../../Components/Card";
+import { useFavCard } from "../../context";
 
 function Favorite() {
   const { fav } = useFavCard();

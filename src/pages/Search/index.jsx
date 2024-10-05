@@ -1,33 +1,23 @@
 import { Center, Flex } from "@chakra-ui/react";
 import SearchBar from "../../Components/SearchBar";
 import Card from "../../Components/Card";
-import { useEffect, useState } from "react";
-import films from "../../json/films.json";
+import { useState } from "react";
+import { useFetchVideos } from "../../Components/Videos";
 import Category from "../../Components/Category";
 import Spinner from "../../Components/Spinner";
 
 function Search() {
-  const [spinn, SetSpinn] = useState(true);
   const [value, setValue] = useState("");
-  console.log(value);
-  const matchTitle = films.filter((el) =>
-    value === "" ? el.id : el.title.toLocaleLowerCase().includes(value)
+  const matchTitle = useFetchVideos().filter((el) =>
+    value === "" ? el.code : el.title.toLocaleLowerCase().includes(value)
   );
   const labelSearch =
     matchTitle.length > 1 || matchTitle.length == 0
       ? `Sua busca por '${value}' resultou em  ${matchTitle.length} Filmes`
       : `Sua busca por '${value}' resultou em  ${matchTitle.length} Filme`;
 
-  useEffect(() => {
-    setTimeout(() => SetSpinn(false), 1000);
-  });
-
-  if (spinn) {
-    return (
-      <>
-        <Spinner />
-      </>
-    );
+  if (matchTitle.length == 0) {
+    return <Spinner />;
   } else {
     return (
       <>
@@ -44,7 +34,7 @@ function Search() {
         <Center w="100%">
           <Flex w="85%" align="center" justify="center" wrap="wrap">
             {matchTitle.map((video) => {
-              return <Card key={video.id} id={video.id} />;
+              return <Card key={video.id} id={video.code} />;
             })}
           </Flex>
         </Center>
