@@ -8,6 +8,7 @@ import Spinner from "../../Components/Spinner";
 
 function Search() {
   const [value, setValue] = useState("");
+  const listVideos = useFetchVideos().filter((el) => el);
   const matchTitle = useFetchVideos().filter((el) =>
     value === "" ? el.code : el.title.toLocaleLowerCase().includes(value)
   );
@@ -16,7 +17,7 @@ function Search() {
       ? `Sua busca por '${value}' resultou em  ${matchTitle.length} Filmes`
       : `Sua busca por '${value}' resultou em  ${matchTitle.length} Filme`;
 
-  if (matchTitle.length == 0) {
+  if (listVideos.length == 0) {
     return <Spinner />;
   } else {
     return (
