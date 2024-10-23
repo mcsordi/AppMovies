@@ -1,3 +1,4 @@
+import P from "prop-types"
 import { Heading, Box, Center } from "@chakra-ui/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -5,16 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export const categories = ["Ação", "Comédia", "Terror", "Animação"];
-// export const Categories = () => {
-//   const apiAdress = `https://appmovies-api.onrender.com/filmes`;
-//   useEffect(() => {
-//     return fetch(apiAdress)
-//       .then((response) => response.json())
-//       .then((json) => console.log(json));
-//   });
-// };
 
-// eslint-disable-next-line react/prop-types
 function Category({ children, category }) {
   return (
     <Center
@@ -46,5 +38,14 @@ function Category({ children, category }) {
       </Box>
     </Center>
   );
+}
+Category.propTypes={
+  category:P.string,
+  children:P.shape({
+    id:P.number,
+    title:P.string,
+    category:P.string,
+    code:P.string
+  })
 }
 export default Category;

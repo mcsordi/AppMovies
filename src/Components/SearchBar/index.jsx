@@ -1,8 +1,9 @@
+import P from "prop-types"
 import { SearchIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 
-function SearchBar({ value, setValue, size }) {
+function SearchBar({ value, setValue }) {
   const focus = useRef(null);
   useEffect(() => {
     focus.current.focus();
@@ -40,5 +41,9 @@ function SearchBar({ value, setValue, size }) {
       </InputRightElement>
     </InputGroup>
   );
+}
+SearchBar.propTypes={
+  value:P.string,
+  setValue:P.string
 }
 export default SearchBar;

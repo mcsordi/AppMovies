@@ -1,3 +1,4 @@
+import P from "prop-types"
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../../Components/Card";
@@ -7,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
 
 function Carrousel({ listVideos }) {
   return ListCategories().map((el, idx) => (
@@ -47,17 +49,18 @@ function Carrousel({ listVideos }) {
         }}
       >
         {listVideos.map((video) =>
-          video.category == el.category ? (
+          video.category == el.category && (
             <SwiperSlide key={video.id}>
               <Card key={video.id} id={video.code}></Card>
             </SwiperSlide>
-          ) : (
-            <></>
-          )
+          ) 
         )}
       </Swiper>
     </Category>
   ));
+}
+Carrousel.propTypes={
+  listVideos:P.array
 }
 
 export default Carrousel;

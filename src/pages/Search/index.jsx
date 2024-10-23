@@ -16,7 +16,6 @@ function Search() {
     matchTitle.length > 1 || matchTitle.length == 0
       ? `Sua busca por '${value}' resultou em  ${matchTitle.length} Filmes`
       : `Sua busca por '${value}' resultou em  ${matchTitle.length} Filme`;
-
   if (listVideos.length == 0) {
     return <Spinner />;
   } else {

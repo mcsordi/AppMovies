@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export function useFetchVideos() {
   const [video, setVideo] = useState([]);
-  const url = "https://appmovies-api.onrender.com/filmes";
+  const url = import.meta.env.VITE_DATABASE_FILMS ;
 
   useEffect(() => {
     const listVideos = async () => {

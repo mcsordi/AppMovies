@@ -1,6 +1,6 @@
+import P from "prop-types"
 import { Spinner, Flex } from "@chakra-ui/react";
 
-// eslint-disable-next-line react/prop-types
 function Spinn({ position }) {
   return (
     <Flex
@@ -15,4 +15,7 @@ function Spinn({ position }) {
   );
 }
 
+Spinn.propTypes={
+  position:P.string
+}
 export default Spinn;

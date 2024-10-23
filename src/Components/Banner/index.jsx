@@ -1,3 +1,4 @@
+import P from "prop-types"
 import { Box } from "@chakra-ui/react";
 
 function Banner({ image }) {
@@ -18,5 +19,8 @@ function Banner({ image }) {
       ></Box>
     </Box>
   );
+}
+Banner.propTypes={
+  image:P.string
 }
 export default Banner;

@@ -1,10 +1,11 @@
+import P from "prop-types"
 import { Box, Center, Link } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
 import { useFavCard } from "../../context";
 import style from "./Card.module.css";
 
-// eslint-disable-next-line react/prop-types
+
 function Card({ id }) {
   const { fav, addFavorite } = useFavCard();
   const favIcon = fav.includes(id) ? (
@@ -60,4 +61,7 @@ function Card({ id }) {
   );
 }
 
+Card.propTypes={
+  id:P.string
+}
 export default Card;
