@@ -44,6 +44,6 @@ function SearchBar({ value, setValue }) {
 }
 SearchBar.propTypes={
   value:P.string,
-  setValue:P.string
+  setValue:P.func
 }
 export default SearchBar;

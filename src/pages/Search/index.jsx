@@ -8,15 +8,18 @@ import Spinner from "../../Components/Spinner";
 
 function Search() {
   const [value, setValue] = useState("");
-  const listVideos = useFetchVideos().filter((el) => el);
-  const matchTitle = useFetchVideos().filter((el) =>
-    value === "" ? el.code : el.title.toLocaleLowerCase().includes(value)
+  const responseVideos = useFetchVideos()
+ 
+  const listVideos = responseVideos && responseVideos.filter((el) => el);
+  const matchTitle = responseVideos && responseVideos.filter((el) =>
+        value === "" ? el.code : el.title.toLocaleLowerCase().includes(value)
   );
+
   const labelSearch =
-    matchTitle.length > 1 || matchTitle.length == 0
-      ? `Sua busca por '${value}' resultou em  ${matchTitle.length} Filmes`
-      : `Sua busca por '${value}' resultou em  ${matchTitle.length} Filme`;
-  if (listVideos.length == 0) {
+  responseVideos && matchTitle.length > 1 || responseVideos && matchTitle.length == 0
+      ? `Sua busca por '${value}' resultou em  ${responseVideos && matchTitle.length} Filmes`
+      : `Sua busca por '${value}' resultou em  ${responseVideos && matchTitle.length} Filme`;
+  if (!listVideos) {
     return <Spinner />;
   } else {
     return (

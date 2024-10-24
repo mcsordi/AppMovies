@@ -4,7 +4,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import FavoriteContext from "./context";
+import FavoriteContext from "./context/context";
 import BasePage from "./pages/BasePage";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";

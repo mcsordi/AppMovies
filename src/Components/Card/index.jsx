@@ -1,66 +1,36 @@
 import P from "prop-types"
-import { Box, Center, Link } from "@chakra-ui/react";
-import { Link as ReactRouterLink } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
-import { useFavCard } from "../../context";
-import style from "./Card.module.css";
-
+import { useFavCard } from "../../context/context";
 
 function Card({ id }) {
   const { fav, addFavorite } = useFavCard();
+ 
   const favIcon = fav.includes(id) ? (
     <StarIcon w={6} h={6} color="yellow" />
   ) : (
     <StarIcon w={6} h={6} color="#fff" />
   );
-
   return (
-    <Center
-      flexDirection="column"
-      alignItems={"start "}
-      justifyContent={"end"}
-      position="relative"
-      mx={".3rem"}
-      my={"1rem"}
-    >
+    <section className="flex flex-col-reverse p-2">
       <Link
-        w={["143px", "286px"]}
-        h={["80px", "161px"]}
-        as={ReactRouterLink}
-        to={`/watch/${id}`}
-      >
-        <Box
-          _hover={{
-            transform: "scale(1.15)",
-            cursor: "pointer",
-            zIndex: "99999",
-          }}
-          transition=".3s ease-in-out all"
-          borderRadius="10px"
-          w="100%"
-          h="100%"
-          alt="Trailer Img"
-          backgroundImage={`url(https://img.youtube.com/vi/${id}/mqdefault.jpg)`}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="contain"
-          position={"relative"}
-        ></Box>
+      className="w-[250px] sm:w-[286px] sm:h-[161px]"
+          to={`/watch/${id}`}
+            >
+        <div className="flex hover:scale-110">
+        <img src={`https://img.youtube.com/vi/${id}/mqdefault.jpg`}
+        className="rounded-md"/>
+        </div>
       </Link>
-
-      <Box
-        as="figure"
-        className={style.starIcon}
-        w={["30px", "50px"]}
-        h={["30px", "50px"]}
-        onClick={() => addFavorite(id)}
+      <figure
+        className={`cursor-pointer absolute flex items-center justify-center bg-black bg-opacity-60 w-10 h-10 rounded-md hover:bg-opacity-100`}
+        onClick={() =>  { return console.log(id),addFavorite(id)}}
       >
         {favIcon}
-      </Box>
-    </Center>
+      </figure>
+      </section>
   );
 }
-
 Card.propTypes={
   id:P.string
 }

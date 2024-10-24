@@ -7,12 +7,11 @@ import Spinn from "../../Components/Spinner";
 
 function Watch() {
   const params = useParams().id;
-  const isValidId = useFetchVideos().filter((el) =>
-    el.code === params ? el.title : false
+  const responseVideos = useFetchVideos()
+   const isValidId = responseVideos && responseVideos.filter((el) =>
+       el.code === params ? el.title : false
   );
-
-
-  if (isValidId.length == 0) {
+   if (responseVideos && isValidId.length < 1) {
     return <Spinn />;
   } else {
     return (
@@ -34,7 +33,7 @@ function Watch() {
             mt="10%"
             direction="column"
           >
-            <Category category={isValidId[0].title} />
+            <Category category={responseVideos && isValidId[0].title} />
             <Box
               as="iframe"
               width={["100%", "860px"]}

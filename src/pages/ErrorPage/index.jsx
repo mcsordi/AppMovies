@@ -1,12 +1,11 @@
+import P from "prop-types"
 import { Center, Img } from "@chakra-ui/react";
-
 import erro from "./image/erro404.png";
 import Category from "../../Components/Category";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Container from "../../Components/Container ";
 
-// eslint-disable-next-line react/prop-types
 function ErrorPage({ param }) {
   return (
     <>
@@ -27,6 +26,9 @@ function ErrorPage({ param }) {
       <Footer />
     </>
   );
+}
+ErrorPage.propTypes={
+  param:P.string
 }
 
 export default ErrorPage;

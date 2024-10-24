@@ -1,3 +1,4 @@
+import P from "prop-types"
 import { Box } from "@chakra-ui/react";
 function Container({ children }) {
   return (
@@ -17,5 +18,8 @@ function Container({ children }) {
       {children}
     </Box>
   );
+}
+Container.propTypes={
+  children:P.object
 }
 export default Container;
