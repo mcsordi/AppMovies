@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-
-function ListCategories() {
-  const url = import.meta.env.VITE_DATABASE_CATEGORIES
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const FilmCategories = async () => {
-      const api = await fetch(url);
-      const data = await api.json();
-      setCategories(data);
-    };
-    FilmCategories();
-  }, [url]);
-  return categories;
+const url = import.meta.env.VITE_DATABASE_CATEGORIES;
+export function useCategories() {
+  const [categories,setCategories] = useState([])
+  useEffect(()=>{
+    const response =  async () =>{
+    const api = await fetch(url);
+    const dataJson = await api.json();
+    return setCategories(dataJson)
+    }
+    return response
+  },[])
+  return categories
 }
 
-export default ListCategories;
+

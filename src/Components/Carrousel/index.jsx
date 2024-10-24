@@ -1,7 +1,8 @@
 import P from "prop-types"
 import Card from "../../Components/Card";
 import Category from "../Category";
-import ListCategories from "../../Components/Category/listCategories";
+import {useCategories} from "../../Components/Category/listCategories";
+
 import Slider from "react-slick";
 
 function Carrousel({ listVideos }) {
@@ -14,7 +15,8 @@ function Carrousel({ listVideos }) {
     // slidesToShow: 3,
     slidesToScroll: 1
   };
-  return ListCategories().map((el, idx) => (
+  console.log("useCategories:", useCategories())
+  return useCategories().map((el, idx) => (
     <Category key={idx} category={el.category}>
       <div className="w-[275px] sm:w-[550px] lg:w-[910px] 2xl:w-[1220px]">
       <Slider className="m-2" {...settings}>
