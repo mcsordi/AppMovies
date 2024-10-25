@@ -5,8 +5,10 @@ export function useCategories() {
   useEffect(()=>{
     const response =  async () =>{
     const api = await fetch(url);
-    const dataJson = await api.json();
-    return setCategories(dataJson)
+    api.json().then(res=>{
+      setCategories(res)
+    })
+    
     }
     return response
   },[])
