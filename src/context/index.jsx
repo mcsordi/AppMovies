@@ -18,11 +18,21 @@ FavoriteContext.propTypes = {
 
 export function useFavoriteContext() {
   const { fav, setFav } = useContext(Favorite)
-  const newFav = [...fav]
+  let newFav = [...fav]
 
   const addFavorite = (id) => {
-    newFav.push(id)
-    return setFav(newFav)
+    const repeatedFilm = newFav.includes(id)
+    const filterNoRepeated = newFav.filter((code) => code != id)
+    if (repeatedFilm) {
+      newFav = filterNoRepeated
+      setFav(newFav)
+      return
+    }
+    else {
+      newFav.push(id)
+      return setFav(newFav)
+    }
+
   }
 
   return { fav, addFavorite }

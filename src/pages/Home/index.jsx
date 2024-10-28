@@ -1,7 +1,8 @@
 import { useFetchData } from "../../App/utils/useFetchData";
 import Carrousel from "../../App/components/Carrousel";
+import Banner from "../../App/components/Banner";
 import LoadingPage from "../LoadingPage";
-import ErrorPage from "../ErrorPage";
+import LoadError from "../LoadError";
 
 function Home() {
   const baseUrl = import.meta.env.VITE_BASE_URL
@@ -11,9 +12,12 @@ function Home() {
     return <div><LoadingPage /></div>
   }
   if (error) {
-    return <ErrorPage />
+    return <LoadError />
   }
-  return <Carrousel />
+  return <>
+    <Banner />
+    <Carrousel />
+  </>
 
 }
 export default Home;

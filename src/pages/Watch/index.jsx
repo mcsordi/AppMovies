@@ -1,24 +1,24 @@
 import { useParams } from "react-router-dom"
 import ShowText from "../../App/components/ShowText"
 import { useFetchData } from "../../App/utils/useFetchData"
-import ErrorPage from "../ErrorPage"
 import LoadingPage from "../LoadingPage"
+import LoadError from "../LoadError"
 
 function Watch() {
   const id = useParams().id
   const baseUrl = import.meta.env.VITE_BASE_URL
   const { loading, response, error } = useFetchData(`${baseUrl}/filmes/${id}`)
+  const filmTitle = response.map(({ title }) => title)
 
   if (loading) {
     return <LoadingPage />
   }
-
   if (error) {
-    return <ErrorPage />
+    return <LoadError />
   }
   return (<div className="absolute flex flex-col  items-center justify-center w-full h-full">
     <div className="pb-4">
-      <ShowText text={response.map(({ title }) => title)} />
+      <ShowText text={filmTitle[0]} />
     </div>
     {<iframe
       className="w-[320px] h-[300px] sm:w-[560px] sm:h-[315px] xl:w-[700px] xl:h-[500px] rounded-md"

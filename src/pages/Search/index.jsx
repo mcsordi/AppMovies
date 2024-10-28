@@ -1,10 +1,10 @@
 import Card from "../../App/components/Card"
 import { useFetchData } from "../../App/utils/useFetchData"
 import LoadingPage from "../LoadingPage"
-import ErrorPage from "../ErrorPage"
 import InputFilm from "../../App/components/InputFilm"
 import { useState } from "react"
 import ShowText from "../../App/components/ShowText"
+import LoadError from "../LoadError"
 
 function Search() {
   const [text, setText] = useState()
@@ -20,13 +20,15 @@ function Search() {
     return <LoadingPage />
   }
   if (error) {
-    return <ErrorPage />
+    return <LoadError />
   }
   return (
-    <section className="flex flex-col items-center justify-center">
-      <InputFilm text={(evt) => setText(evt)} />
-      <ShowText text={numberOfResults < 1 ? noneResults : textResult} />
-      <div className="gap-3 mt-6 grid sm:mt-3 sm:gap-0 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+    <section className="flex flex-col items-center">
+      <div className="mt-5 ">
+        <InputFilm text={(evt) => setText(evt)} />
+        <ShowText text={numberOfResults < 1 ? noneResults : textResult} />
+      </div>
+      <div className="mx-auto gap-3 mt-6 grid sm:mt-3 sm:gap-0 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {isSometingWrote.map((film) => <Card className="text-white" key={film.id}
           id={film.code} />)}
       </div>

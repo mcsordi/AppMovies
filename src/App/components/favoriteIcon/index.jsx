@@ -1,15 +1,20 @@
 import P from "prop-types"
+
 import { MdFavorite } from "react-icons/md";
-function FavoriteIcon({ onClick }) {
+function FavoriteIcon({ onClick, icon }) {
+
   return (
     <figure className="items-center justify-center bg-blackOpacity  rounded-sm
-     w-10 h-12 flex relative bottom-12 hover:bg-black " onClick={(evt) => { return evt.preventDefault(), onClick() }}>
-      <MdFavorite className="text-4xl text-white" />
+     w-12 h-12 flex relative bottom-12 hover:bg-black "
+      onClick={(evt) => { return evt.preventDefault(), onClick() }}>
+      <MdFavorite className={`text-4xl ${icon}`} />
     </figure>
   )
 }
 FavoriteIcon.propTypes = {
-  onClick: P.func
+  onClick: P.func,
+  icon: P.string
+
 }
 
 export default FavoriteIcon

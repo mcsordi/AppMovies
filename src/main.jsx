@@ -7,14 +7,15 @@ import Search from './pages/Search/index.jsx'
 import Favorites from './pages/Favorites/index.jsx'
 import Watch from './pages/Watch/index.jsx'
 import BasePage from './pages/BasePage/index.jsx'
-import ErrorPage from './pages/ErrorPage/index.jsx'
+import Error404Page from './pages/Error404Page/index.jsx'
 import FavoriteContext from './context/index.jsx'
+import Posts from './pages/Posts/index.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <BasePage />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error404Page />,
     children:
       [
         {
@@ -22,14 +23,18 @@ const router = createBrowserRouter([
           element: <Home />,
         },
         {
-          path: "/search",
+          path: "search",
           element: <Search />
         }, {
-          path: "/favorites",
+          path: "favorites",
           element: <Favorites />
         }, {
-          path: "/watch/:id",
+          path: "watch/:id",
           element: <Watch />
+        },
+        {
+          path: "posts",
+          element: <Posts />
         }
       ]
   }

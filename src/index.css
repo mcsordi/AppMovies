@@ -17,3 +17,21 @@
 .slick-prev::before {
   font-size: 25px;
 }
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #222;
+  border-radius: 5px;
+  background-color: rgb(180, 28, 28);
+}
+
+::-webkit-scrollbar-button {
+  background-color: #000;
+}
+::-webkit-scrollbar-track {
+  padding: 4px;
+  background-color: #000;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #000;
+}

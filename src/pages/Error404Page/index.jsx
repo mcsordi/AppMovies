@@ -1,7 +1,7 @@
 import Footer from "../../App/components/Footer"
 import Header from "../../App/components/Header"
 
-function ErrorPage() {
+function Error404Page() {
   return <>
     <Header />
     <div className="flex items-center justify-center flex-col w-full  s">
@@ -14,4 +14,4 @@ function ErrorPage() {
 
   </>
 }
-export default ErrorPage
+export default Error404Page
