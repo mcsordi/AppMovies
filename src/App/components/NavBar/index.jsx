@@ -1,10 +1,11 @@
 import P from "prop-types"
+import { Link } from "react-router-dom"
 function NavBar({ config }) {
   return (
-    <nav className={`${config} text-xl bg-black gap-6 uppercase font-semibold`}>
-      <a href="/">Home</a>
-      <a href="/">Pesquisar</a>
-      <a href="/">Favoritos</a>
+    <nav className={`${config} text-md bg-black gap-6 uppercase font-semibold`}>
+      <Link to="/">Home</Link>
+      <Link to="/search">Pesquisar</Link>
+      <Link to="/favorites">Favoritos</Link>
     </nav>
   )
 }

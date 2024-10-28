@@ -4,7 +4,7 @@ function Category({ children, category }) {
 
   return (
     <div className=" text-center">
-      <h2 className="font-poppins text-3xl font-medium text-white p-8">{category}</h2>
+      <h2 className="font-poppins text-2xl font-medium text-white p-6">{category}</h2>
       <div className="flex">
         <div className="mx-auto w-[250px] 450:w-[270px]  sm:w-[580px] lg:w-[870px] 2xl:w-[1160px]">
           {children}
