@@ -8,6 +8,7 @@ import Favorites from './pages/Favorites/index.jsx'
 import Watch from './pages/Watch/index.jsx'
 import BasePage from './pages/BasePage/index.jsx'
 import ErrorPage from './pages/ErrorPage/index.jsx'
+import FavoriteContext from './context/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
           path: "/favorites",
           element: <Favorites />
         }, {
-          path: "/watch",
+          path: "/watch/:id",
           element: <Watch />
         }
       ]
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FavoriteContext>
+      <RouterProvider router={router} />
+    </FavoriteContext>
   </StrictMode>,
 )

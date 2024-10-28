@@ -18,7 +18,7 @@ function FilmCard({ category }) {
   return <Slider {...settings}>
     {response.map((film) => film.category == category
       && <Card className="text-white" key={film.id}
-        src={`https://img.youtube.com/vi/${film.code}/mqdefault.jpg`} />)}
+        id={film.code} />)}
   </Slider >
 
 }

@@ -14,7 +14,8 @@ export default {
         error: "url('./images/error.png')"
       },
       backgroundColor: {
-        blacktone: "#1c1c1c"
+        blacktone: "#1c1c1c",
+        blackOpacity: "#00000099"
       },
       screens: {
         450: "450px"

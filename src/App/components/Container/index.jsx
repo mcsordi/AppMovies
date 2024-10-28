@@ -1,6 +1,6 @@
 import P from "prop-types"
 function Container({ children }) {
-  return <section className="min-h-screen w-full bg-blacktone">
+  return <section className="min-h-screen w-full items-center justify-center bg-blacktone">
     {children}
   </section>
 }

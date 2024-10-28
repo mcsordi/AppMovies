@@ -28,7 +28,7 @@ function Search() {
       <ShowText text={numberOfResults < 1 ? noneResults : textResult} />
       <div className="gap-3 mt-6 grid sm:mt-3 sm:gap-0 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {isSometingWrote.map((film) => <Card className="text-white" key={film.id}
-          src={`https://img.youtube.com/vi/${film.code}/mqdefault.jpg`} />)}
+          id={film.code} />)}
       </div>
     </section>
   )

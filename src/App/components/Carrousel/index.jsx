@@ -5,7 +5,7 @@ import FilmCard from "../FilmCard";
 
 function Carrousel() {
 
-  const categoriesUrl = `${import.meta.env.VITE_BASE_URL}/categories`
+  const categoriesUrl = import.meta.env.VITE_CATEGORIES_DB
   const { response } = useFetchData(categoriesUrl)
 
   return response.map((category, id) =>
