@@ -7,16 +7,18 @@ import Search from './pages/Search/index.jsx'
 import Favorites from './pages/Favorites/index.jsx'
 import Watch from './pages/Watch/index.jsx'
 import BasePage from './pages/BasePage/index.jsx'
+import ErrorPage from './pages/ErrorPage/index.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <BasePage />,
+    errorElement: <ErrorPage />,
     children:
       [
         {
           path: "/",
-          element: <Home />
+          element: <Home />,
         },
         {
           path: "/search",

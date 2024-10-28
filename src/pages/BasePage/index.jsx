@@ -7,8 +7,8 @@ function BasePage() {
     <Container>
       <Header />
       <Outlet />
-      <Footer />
     </Container>
+    <Footer />
   </>
 }
 export default BasePage
