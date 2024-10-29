@@ -5,7 +5,7 @@ import MessagePost from "../../App/components/MessagePost"
 
 const postFilm = async (title, category, newCategory, code, setStatusMessage) => {
   const baseURl = import.meta.env.VITE_BASE_URL
-  const response = fetch(`${baseURl}/filmes`, {
+  const response = await fetch(`${baseURl}/filmes`, {
     headers: {
       "Content-Type": "application/json"
     },
