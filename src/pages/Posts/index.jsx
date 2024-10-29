@@ -16,7 +16,7 @@ const postFilm = async (title, category, newCategory, code, setStatusMessage) =>
       "code": code
     })
   })
-  if ((await response).status == 200) {
+  if (response.status == 200) {
     return setStatusMessage(true)
   } else {
     return setStatusMessage(false)
@@ -46,7 +46,6 @@ function Posts() {
       onClick={() => { return postFilm(title, category, newCategory, code, setStatusMessage) }}
     />
     <MessagePost statusMessage={statusMessage} />
-
   </section >
 }
 export default Posts

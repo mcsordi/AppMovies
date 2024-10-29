@@ -33,7 +33,7 @@ const router = createBrowserRouter([
           element: <Watch />
         },
         {
-          path: "/posts",
+          path: "posts",
           element: <Posts />,
         }
       ]
