@@ -10,8 +10,8 @@ export default {
         poppins: "Poppins"
       },
       backgroundImage: {
-        banner: "url('./images/banner-favoritos.png')",
-        error: "url('./images/error.png')"
+        banner: "url('/images/banner-favoritos.png')",
+        error: "url('/images/error.png')"
       },
       backgroundColor: {
         blacktone: "#1c1c1c",
