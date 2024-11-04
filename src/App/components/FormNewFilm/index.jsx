@@ -3,9 +3,10 @@ import P from "prop-types"
 function FormNewFilm({ response, target, setTarget, setTitle, onClick
   , setCode,
   setCategory, setNewCategory }) {
+  console.log("response:", response)
 
   return (
-    <div className="bg-black p-10 rounded-md"><form className="gap-2 w-96 flex flex-col">
+    <div className="bg-black px-20 py-12 rounded-md"><form className="gap-2 w-96 flex flex-col">
       <label htmlFor="title" className="text-white">Titulo</label>
       <input className="outline-none p-2 rounded-sm" id="title" type="search"
         onChange={(evt) => setTitle(evt.target.value)} />
@@ -18,7 +19,7 @@ function FormNewFilm({ response, target, setTarget, setTitle, onClick
           return evt.target.value == "Outro" ? setTarget("flex") : setTarget("hidden"),
             setCategory(evt.target.value)
         }}>
-        {response.map(({ category }, id) => <option key={id}>{category}</option>)}
+        {response[0]?.map(({ category }, id) => <option key={id}>{category}</option>)}
         <option>Outro</option>
       </select>
       <label htmlFor="writeCategory" className={`${target} text-white`}>Outra Categoria</label>

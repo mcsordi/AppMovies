@@ -1,20 +1,19 @@
-
-import { useFetchData } from "../../utils/useFetchData";
+import P from "prop-types"
 import Category from "../Category";
 import FilmCard from "../FilmCard";
 
-function Carrousel() {
+function Carrousel({ response, films }) {
 
-  const categoriesUrl = import.meta.env.VITE_CATEGORIES_DB
-  const { response } = useFetchData(categoriesUrl)
-
-  return response.map((category, id) =>
-    <Category key={id} category={category.category} >
+  return response?.map(({ category }, id) =>
+    <Category key={id} category={category} >
       <div>
-        <FilmCard category={category.category} />
+        <FilmCard response={films} category={category} />
       </div>
     </Category >)
 
 }
 
+Carrousel.propTypes = {
+  response: P.array
+}
 export default Carrousel

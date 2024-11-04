@@ -29,7 +29,7 @@ function Posts() {
   const [category, setCategory] = useState()
   const [newCategory, setNewCategory] = useState()
   const categoriesUrl = import.meta.env.VITE_CATEGORIES_DB
-  const { response } = useFetchData(categoriesUrl)
+  const { response } = useFetchData([categoriesUrl])
   const [target, setTarget] = useState("flex")
   const [statusMessage, setStatusMessage] = useState()
 

@@ -6,7 +6,7 @@ import LoadError from "../LoadError";
 
 function Home() {
   const baseUrl = import.meta.env.VITE_BASE_URL
-  const { loading, error } = useFetchData(`${baseUrl}/filmes`)
+  const { loading, response, error } = useFetchData([`${baseUrl}/filmes`, `${baseUrl}/categories`])
 
   if (loading) {
     return <div><LoadingPage /></div>
@@ -14,9 +14,11 @@ function Home() {
   if (error) {
     return <LoadError />
   }
+  const category = response[1]
+  const films = response[0]
   return <>
     <Banner />
-    <Carrousel />
+    <Carrousel films={films} response={category} />
   </>
 
 }
